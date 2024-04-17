@@ -1,0 +1,28 @@
+<div class="project-form">
+  <h2>{{ isNewProject ? 'Create New Project' : 'Edit Project' }}</h2>
+  <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm.value)">
+    <div class="form-group">
+      <label for="projectName">Project Name<span class="required">*</span>:</label>
+      <input type="text" id="projectName" name="projectname" [(ngModel)]="project.projectname" required #projectName="ngModel">
+      <div *ngIf="projectName.invalid && (projectName.dirty || projectName.touched)" class="error-message">
+        <div *ngIf="projectName.errors?.['required']">Name is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="projectDescription">Project Description:</label>
+      <textarea id="projectDescription" name="projectdescription" [(ngModel)]="project.projectdescription"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="startDate">Start Date<span class="required">*</span>:</label>
+      <input type="date" id="startDate" name="startdate" [(ngModel)]="project.startdate" required #startDate="ngModel">
+      <div *ngIf="startDate.invalid && (startDate.dirty || startDate.touched)" class="error-message">
+        <div *ngIf="startDate.errors?.['required']">Start date is required.</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="endDate">End Date:</label>
+      <input type="date" id="endDate" name="enddate" [(ngModel)]="project.enddate">
+    </div>
+    <button type="submit" [disabled]="projectForm.invalid">{{ isNewProject ? 'Create' : 'Save' }}</button>
+  </form>
+</div>

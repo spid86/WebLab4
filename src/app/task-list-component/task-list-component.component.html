@@ -1,0 +1,14 @@
+<div class="task-list">
+  <div *ngIf="tasks.length === 0" class="placeholder-message">
+    No tasks available.
+  </div>
+  <div class="task-item" *ngFor="let task of tasks; let i = index">
+    <h3>{{ task.taskname }}</h3>
+    <p>{{ task.taskdescription }}</p>
+    <p>Planned End Date: {{ task.plannedenddate | date }}</p>
+    <p [ngClass]="{'completed': task.iscompleted, 'expired': !task.iscompleted && isTaskExpired(task.plannedenddate)}">
+      {{ task.iscompleted ? 'Completed' : 'Not Completed' }}
+    </p>
+    <button (click)="deleteTask(i)">Delete</button>
+  </div>
+</div>

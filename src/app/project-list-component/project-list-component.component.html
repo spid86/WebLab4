@@ -1,0 +1,26 @@
+<div class="search-bar">
+  <input #searchInput type="text" placeholder="Search projects..." (keyup.enter)="searchProjects(searchInput.value)">
+  <button class="search-button" (click)="searchProjects(searchInput.value)">Search</button>
+</div>
+<div class="project-list">
+    <div [routerLink]="['/tasks', project.projectid]" class="project-item"  *ngFor="let project of projects">
+      <h3>{{ project.projectname }}</h3>
+      <p>{{ project.projectdescription }}</p>
+      <div class="date-range">
+        <p>Start Date: {{ project.startdate }}</p>
+        <p>End Date: {{ project.enddate }}</p>
+      </div>
+      <div class="task-summary">
+        <p>Tasks: {{ project.tasks.length }}</p>
+        <p>Incompleted tasks: {{ project.openTaskCount }}</p>
+      </div>
+      <button class="edit-button" (click)="editProject(project)">Edit</button>
+      <button class="delete-button" (click)="deleteProject(project); $event.stopPropagation()">Delete</button>
+    </div>  
+    <!-- Empty project for creating new project -->
+  <div class="project-item new-project" (click)="createNewProject()">
+    <h3>Create New Project</h3>
+    <p>Click here to create a new project</p>
+  </div>
+</div>
+  

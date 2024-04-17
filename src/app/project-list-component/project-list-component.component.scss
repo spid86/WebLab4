@@ -1,0 +1,134 @@
+.project-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  .search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+.new-project {
+  border: 2px dashed #999;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  min-height: 200px; 
+
+  &:hover {
+    background-color: #ccc;
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}
+.project-item {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(33.33% - 20px); // Adjust based on your layout needs
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s;
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  
+  h3 {
+    color: #333;
+    margin-top: 0;
+  }
+  .date-range {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+  .task-summary {
+    margin-top: 15px;
+    font-style: italic;
+    justify-content: space-between;
+    display: flex;
+    
+  }
+  button.edit-button {
+    position: absolute;
+    top: 20px; // Adjust based on your layout needs
+    right: 20px; // Adjust based on your layout needs
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    min-width: 80px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+  button.delete-button {
+    position: absolute;
+    min-width: 80px;
+    top: 61px; // Adjust based on your layout needs
+    right: 20px; // Adjust based on your layout needs
+    background-color: #ab1919;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #9b1616;
+    }
+  }
+ 
+}
+
+@media (max-width: 768px) {
+  .project-item {
+    width: calc(50% - 20px); // Adjust based on your layout needs for smaller screens
+  }
+}
+
+@media (max-width: 480px) {
+  .project-item {
+    width: 100%; // Adjust based on your layout needs for even smaller screens
+  }
+}
